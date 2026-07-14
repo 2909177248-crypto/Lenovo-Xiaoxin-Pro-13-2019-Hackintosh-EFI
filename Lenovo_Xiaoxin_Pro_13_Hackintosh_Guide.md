@@ -44,7 +44,7 @@
 *   **AAPL,ig-platform-id**: `00009B3E` (十代移动端核显帧缓冲区布局)
 *   **device-id**: `9B3E0000` (强制识别为 UHD 620)
 *   **framebuffer-patch-enable**: `01000000` (开启显卡修补)
-*   **framebuffer-stolenmem**: `00003002` (注入 **48MB stolenmem**，防止主板默认 32MB 导致 WindowsServer 崩溃)
+*   **framebuffer-stolenmem**: `00003001` (注入 **19MB stolenmem**，限制在主板默认 32MB 以下，防止 WindowsServer 崩溃)
 *   **framebuffer-fbmem**: `00009000` (注入 **9MB fbmem** 作为帧缓冲缓存)
 *   **dpcd-max-link-rate**: `0A000000` (强制锁死屏幕 eDP 链路速率为 **HBR2**，防止与 2.5K 屏握手失败导致开机黑屏/竖线)
 *   **enable-max-pixel-clock-override**: `01000000` (突破最大像素时钟限制)

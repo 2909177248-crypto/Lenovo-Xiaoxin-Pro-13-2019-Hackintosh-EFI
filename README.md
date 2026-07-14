@@ -14,7 +14,7 @@
 | **核显** | Intel UHD Graphics 620 | ✅ 完美驱动，2.5K 全分辨率图形加速 (QE/CI) |
 | **独显** | NVIDIA GeForce MX250 | ❌ 已通过 `-wegnoegpu` 彻底屏蔽 (省电不发热) |
 | **屏幕** | 13.3" 2560x1600 (16:10) | ✅ 亮度调节正常，无开机竖线/黑屏 bug |
-| **内存** | 16GB LPDDR3 2133MHz | ✅ 识别正常 |
+| **内存** | 16GB DDR4 2666MHz | ✅ 识别正常 |
 | **固态硬盘** | 忆联 (UMIS) LENSE40256GMSP34MESTB3A NVMe 256GB | ✅ `NVMeFix` 驱动，支持 APST 省电温度控制 |
 | **网卡/蓝牙** | Intel Wireless-AC 9462 (en0) / 蓝牙 | ✅ itlwm驱动完美支持，可连WiFi及蓝牙外设 |
 | **声卡** | Realtek ALC257 | ✅ 扬声器/耳机/麦克风正常 |
@@ -27,7 +27,7 @@
 ### 1. 2.5K 屏幕显卡补丁 (解决花屏与黑屏)
 由于十代移动端 UHD 620 驱动 2560x1600 eDP 屏幕存在先天带宽握手问题，本 EFI 进行了如下显卡深度修补：
 *   **强制解锁链路带宽**：注入 `dpcd-max-link-rate` 为 `0A000000` (HBR2 速率)，配合 `enable-max-pixel-clock-override` 彻底解决开机花屏与竖线。
-*   **显存防溢出机制**：注入 `framebuffer-stolenmem` (`48MB`) 与 `framebuffer-fbmem` (`9MB`)，绕过 BIOS 限制，防止显存溢出导致 WindowServer 崩溃死机。
+*   **显存防溢出机制**：注入 `framebuffer-stolenmem` (`19MB`) 与 `framebuffer-fbmem` (`9MB`)，限制在主板 BIOS 默认 32MB 以下，防止显存溢出导致 WindowServer 崩溃死机。
 *   **背光与输出修复**：添加 `-igfxblr` 启动参数解决切换分辨率黑屏，并使用 `ClearScreenOnModeSwitch` 消除开机联想 Logo 闪烁残影。
 
 ### 2. 固态硬盘功耗与降温 (`NVMeFix.kext` 注入)
