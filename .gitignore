@@ -1,0 +1,13 @@
+# macOS Junk Files
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# OpenCore Logs
+opencore-*.txt
+
+# Local backups
+*.bak
+*.bak_*
+*backup*
