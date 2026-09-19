@@ -1341,7 +1341,7 @@
 				AAAAAAAAAAAAAAAAAAA=
 				</data>
 				<key>boot-args</key>
-				<string>revpatch=sbvmm -wegnoegpu -igfxblr igfxonln=1 alcid=99 forceRenderStandby=0</string>
+				<string>revpatch=sbvmm -wegnoegpu -igfxblr alcid=99 forceRenderStandby=0 igfxagdc=0</string>
 				<key>csr-active-config</key>
 				<data>
 				AwgAAA==
